@@ -502,6 +502,7 @@ defmodule LiveBeatsWeb.LiveHelpers do
       assigns
       |> assign_new(:row_id, fn -> false end)
       |> assign(:col, for(col <- assigns.col, col[:if] != false, do: col))
+      # above for loop is one liner and has guard clause(?) (condition) also!
 
     ~H"""
     <div class="hidden mt-8 sm:block">

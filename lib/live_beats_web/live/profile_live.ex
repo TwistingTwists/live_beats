@@ -19,11 +19,14 @@ defmodule LiveBeatsWeb.ProfileLive do
         </.link>
       </div>
 
+      <%# actions is a render slot - practical example %>
+
       <:actions>
         <%= if @active_profile_id == @profile.user_id do %>
           <.button primary
             phx-click={JS.push("switch_profile", value: %{user_id: nil}, target: "#player", loading: "#player")}
           >
+          <%# "switch_profile" is sent to player_live - inter component communication via messages!%>
             <.icon name={:stop}/><span class="ml-2">Stop Listening</span>
           </.button>
         <% else %>

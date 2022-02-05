@@ -90,6 +90,11 @@ defmodule LiveBeats.Accounts do
 
   def get_user_by!(fields), do: Repo.replica().get_by!(User, fields)
 
+  @doc """
+  matching if current user is same as profile user or any other case.
+
+  Pattern Matching - via two variables in function - elegant
+"""
   def update_active_profile(%User{active_profile_user_id: same_id} = current_user, same_id) do
     current_user
   end
